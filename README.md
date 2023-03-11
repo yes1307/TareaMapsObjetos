@@ -1,4 +1,4 @@
-# TareaCollections - Calificaciones Finales
+# Tarea Collections - Calificaciones Finales
 Tarea - sábado 11 de marzo.
 
 10 estudiantes recibieron un examen sorpresa, a los cuales no les fue muy bien. 
