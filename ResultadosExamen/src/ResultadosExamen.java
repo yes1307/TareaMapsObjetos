@@ -1,9 +1,10 @@
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class ResultadosExamen {
 
-    public static Map getCalificacionesOriginales(){
+    public static Map getCalificacionesOriginales() {
         Map calificaciones = new HashMap();
         calificaciones.put("Ana", 24);
         calificaciones.put("Daniel", 50);
@@ -20,7 +21,7 @@ public class ResultadosExamen {
 
     }
 
-    public static Map getCalificacionesRegularizacion(){
+    public static Map getCalificacionesRegularizacion() {
 
         Map calificaciones = new HashMap();
         calificaciones.put("Ana", 97);
@@ -38,6 +39,27 @@ public class ResultadosExamen {
     }
 
     public static void main(String[] args) {
+        System.out.println("Calificaciones de examen Original");
+        System.out.println(getCalificacionesOriginales());
+        System.out.println("Examen Regularización");
+        System.out.println(getCalificacionesRegularizacion());
 
+        System.out.println("------------Calificaciones de examen Final------------");
+        Map<Object, Object> calf1 = getCalificacionesOriginales();
+        Map<Object, Object> calf2 = getCalificacionesRegularizacion();
+        Map<Object, Object> calfinal = new HashMap<>();
+// Inicio comparación de Map
+        Iterator<Object> iterator = calf1.keySet().iterator();
+        while (iterator.hasNext()) {
+            String key = (String) iterator.next();
+// Tomar valor calificación, considerar el tipo de dato
+            if ((int) calf1.get(key) > (int) calf2.get(key)) {
+                calfinal.put(key, calf1.get(key));
+            } else {
+                calfinal.put(key, calf2.get(key));
+            }
+            calfinal.put(key,calfinal.get(key));
+        }
+        System.out.print(calfinal);
     }
 }
